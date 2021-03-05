@@ -1,0 +1,70 @@
+<aside id="error-overlay" class="error-overlay-container">
+    <div #listCtn tabindex="-1"
+        class="error-overlay-list-bubble error-overlay-list-bubble--expanded error-overlay-list-bubble--expanded-tall">
+        <header class="error-overlay-bubble-header">
+            <section class="error-overlay-bubble-header__details" (click)="expandOrMinimz()">
+                <div class="error-img-ctn">
+                    <img src="assets/images/errors.png" alt="">
+                </div>
+                <button class="error-overlay-bubble-header__button">
+                    <h4>
+                        Errors
+                    </h4>
+                </button>
+            </section>
+            <section class="error-overlay-bubble-header__controls">
+                <button style="color: white;" pButton pRipple type="button" icon="pi pi-ellipsis-h"
+                    class="p-button-rounded p-button-text"></button>
+
+                <button pButton style="color: white;" pRipple type="button" [icon]="iconUpOrDown"
+                    class="p-button-rounded p-button-text" (click)="expandOrMinimz()"></button>
+
+            </section>
+        </header>
+        <div class="error-overlay-list-bubble-search">
+            <div class="error-overlay-list-bubble-search__input-container">
+                <i class="pi pi-search error-overlay-list-search__search-icon"></i>
+                <input type="text" name="" id="error-overlay-list-bubble-search__search-typeahead-input"
+                    class="error-overlay-list-bubble-search__search-typeahead-input" [(ngModel)]="errorName"
+                    placeholder="Search Error">
+                <i class="pi pi-sliders-h error-overlay-list-filter-icon"></i>
+            </div>
+        </div>
+        <div class="scroll-panel-container">
+
+            <p-scrollPanel [style]="{width: '100%', height: '100%'}">
+                <div class="error-overlay-list-container">
+                    <ng-container *ngFor="let error of errors | filterError:errorName">
+                        <div *ngIf="!error.control.valid" class="error-overlay-list-item" (click)="select(error)">
+                            <div class="error-overlay-list-card">
+                                <div class="error-selectable-div">
+                                    <div class="error-icon-grid">
+                                        <img src="assets/images/error.png" alt="">
+                                    </div>
+
+                                </div>
+                                <div class="error-overlay-list-bubble__card-content">
+                                    <div class="error-overlay-list-bubble__convo-card-content-wrapper">
+                                        <div class="error-card__row">
+                                            <span class="listitem__error-names">
+                                                Input Error
+                                            </span>
+                                        </div>
+                                        <div class="error-card__row">
+                                            <span class="listitem__error-message">
+                                                {{error.name}} is invalid
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+
+
+
+                </div>
+            </p-scrollPanel>
+        </div>
+    </div>
+</aside>
