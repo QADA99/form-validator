@@ -22,21 +22,19 @@
   margin-left: 16px;
   margin-right: 16px;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 10%), 0 4px 6px rgb(0 0 0 / 20%);
-  transform: translateY(0);
+  overflow-y: hidden;
   transition-duration: 167ms;
   animation: fade-in 167ms cubic-bezier(0.4, 0, 1, 1);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px 8px 0 0;
 }
-.error-overlay-list-bubble--expanded {
-  height: 696px;
-}
+
 .error-overlay-list-bubble--expanded-tall {
   height: calc(100vh - 100px);
 }
 
 .error-overlay-list-bubble--is-minimized {
-  transform: translateY(100%) translateY(-48px);
+  height: 48px;
 }
 .error-overlay-bubble-header {
   display: flex;

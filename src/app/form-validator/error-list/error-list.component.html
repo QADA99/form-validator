@@ -1,7 +1,8 @@
 <aside id="error-overlay" class="error-overlay-container" *ngIf="errors?.length > 0">
     <div #listCtn tabindex="-1"
         class="error-overlay-list-bubble error-overlay-list-bubble--expanded error-overlay-list-bubble--expanded-tall">
-        <header class="error-overlay-bubble-header">
+        <header class="error-overlay-bubble-header" [draggable] dragHandle=".error-overlay-container"
+            dragTarget=".error-overlay-container">
             <section class="error-overlay-bubble-header__details" (click)="expandOrMinimz()">
                 <div class="error-img-ctn">
                     <img src="assets/images/errors.png" alt="">

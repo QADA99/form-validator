@@ -9,7 +9,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { RouterModule, Routes } from '@angular/router'
 
 import { ButtonModule } from 'primeng/button';
-
+import { DraggableDirective } from './form-validator/draggable.directive'
 import { AppComponent } from './app.component';
 import { FormValidatorComponent } from './form-validator/form-validator.component';
 import { ErrorListComponent } from './form-validator/error-list/error-list.component';
@@ -21,7 +21,8 @@ import { AccordionModule } from 'primeng/accordion';
     AppComponent,
     FormValidatorComponent,
     ErrorListComponent,
-    FilterErrorPipe
+    FilterErrorPipe,
+    DraggableDirective
   ],
   imports: [
     FormsModule,
