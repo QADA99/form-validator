@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Error } from './error';
+import * as DomUtil from './dom-utils';
 
 @Component({
   selector: 'form-validator',
@@ -29,16 +30,19 @@ export class FormValidatorComponent implements OnInit {
   select(error: Error) {
     const selector = `[formControlName=${error.name}]`;
     let input = document.querySelector(`${selector}`) as HTMLElement;
-    input.focus({ preventScroll: false });
-    if (document.activeElement != input) {
-      console.log("it seems like he is not visible")
-      let tabParent = this.findParentBySelector(input, `[role="tabpanel"]`) as HTMLElement;
-      let linkToActivate = document.querySelector(`[aria-controls="${tabParent.id}"]`) as HTMLElement;
-      linkToActivate.click();
+    if (DomUtil.isInTab(input)) {
+      let parent = DomUtil.getTabParent(input);
+      if (DomUtil.isHidden(parent)) {
+        DomUtil.openRegionOrTab(parent);
+      }
+    }
+    if (DomUtil.isInRegion(input)) {
+      let parent = DomUtil.getRegionParent(input);
+      if (DomUtil.isHidden(parent))
+        DomUtil.openRegionOrTab(parent);
     }
 
-
-
+    setTimeout(function () { input.focus({ preventScroll: false }); }, 300);
   }
 
   prepareErrors(formGroup: FormGroup) {

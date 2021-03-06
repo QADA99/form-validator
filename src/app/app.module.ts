@@ -4,7 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
+import { StepsModule } from 'primeng/steps';
 import { TabViewModule } from 'primeng/tabview';
+import { RouterModule, Routes } from '@angular/router'
 
 import { ButtonModule } from 'primeng/button';
 
@@ -13,7 +15,7 @@ import { FormValidatorComponent } from './form-validator/form-validator.componen
 import { ErrorListComponent } from './form-validator/error-list/error-list.component';
 import { FilterErrorPipe } from './form-validator/error-list/filter-error.pipe'
 import { ScrollPanelModule } from 'primeng/scrollpanel';
-
+import { AccordionModule } from 'primeng/accordion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +26,19 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
   imports: [
     FormsModule,
     BrowserModule,
+    RouterModule.forRoot([]),
     BrowserAnimationsModule,
     ScrollPanelModule,
     ButtonModule,
     ReactiveFormsModule,
-    TabViewModule
+    TabViewModule,
+    StepsModule,
+    AccordionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
+const routes: Routes = []

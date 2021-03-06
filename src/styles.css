@@ -2,3 +2,6 @@
 body {
   background-color: var(--surface-d);
 }
+a:hover {
+  text-decoration: none;
+}

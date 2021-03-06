@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   title = 'form-validator';
 
   form: FormGroup;
+  items: MenuItem[];
 
 
   show() {
-    console.log(this.form.controls);
-    console.log(this.form.status);
-    this.validateAllFormFields(this.form);
+
   }
   constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder) { }
   submit() {
@@ -26,40 +26,42 @@ export class AppComponent {
 
 
   ngOnInit() {
+    this.items = [
+      { label: 'Step 1' },
+      { label: 'Step 2' },
+      { label: 'Step 3' }
+    ];
     this.primengConfig.ripple = true;
     this.form = this.fb.group({
       cin: [null, Validators.required],
       name: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
-      diplome1: [null, Validators.required],
+      age: [24, [Validators.required, Validators.max(40), Validators.min(18)]],
       address: this.fb.group({
         street: [null, Validators.required],
         street2: [null],
         zipCode: [null, Validators.required],
-        city: [null, Validators.required],
-        state: [null, Validators.required],
+        city: [null],
+        state: [null],
         country: [null, Validators.required]
+      }),
+      family: this.fb.group({
+        father: [null, Validators.required],
+        mother: [null]
+      }),
+      bac: this.fb.group({
+        highSchool: [null, Validators.required],
+        highSchoolYear: [null]
+      }),
+      license: this.fb.group({
+        university: [null, Validators.required],
+        licenseYear: [null]
       })
+
     });
   }
-  isFieldValid(field: string) {
-    return !this.form.get(field).valid && this.form.get(field).touched;
-  }
 
-  displayFieldCss(field: string) {
-    return {
-      'has-error': this.isFieldValid(field),
-      'has-feedback': this.isFieldValid(field)
-    };
-  }
 
-  validateAllFormFields(formGroup: FormGroup) {         //{1}
-    Object.keys(formGroup.controls).forEach(field => {  //{2}
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {             //{4}
-      } else if (control instanceof FormGroup) {        //{5}
-        this.validateAllFormFields(control);            //{6}
-      }
-    });
-  }
+
+
 }

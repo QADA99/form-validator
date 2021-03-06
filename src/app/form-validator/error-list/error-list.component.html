@@ -1,4 +1,4 @@
-<aside id="error-overlay" class="error-overlay-container">
+<aside id="error-overlay" class="error-overlay-container" *ngIf="errors?.length > 0">
     <div #listCtn tabindex="-1"
         class="error-overlay-list-bubble error-overlay-list-bubble--expanded error-overlay-list-bubble--expanded-tall">
         <header class="error-overlay-bubble-header">
@@ -35,7 +35,8 @@
             <p-scrollPanel [style]="{width: '100%', height: '100%'}">
                 <div class="error-overlay-list-container">
                     <ng-container *ngFor="let error of errors | filterError:errorName">
-                        <div *ngIf="!error.control.valid" class="error-overlay-list-item" (click)="select(error)">
+                        <div *ngIf="!error.control.valid" [@inOutAnimation] class="error-overlay-list-item"
+                            (click)="select(error)">
                             <div class="error-overlay-list-card">
                                 <div class="error-selectable-div">
                                     <div class="error-icon-grid">

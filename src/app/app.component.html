@@ -1,91 +1,192 @@
 <div class="container">
-    <form class="form-horizontal" [formGroup]="form" (ngSubmit)="validator.validate()">
-        <div class="form-group ">
-            <div class="col-sm-12">
-                <label for="name" class="control-label required">CIN</label>
-                <input type="text" id="name" class="form-control" formControlName="cin">
-
-            </div>
+    <div class="card mt-4 rounded-card">
+        <div class="card-body">
+            <p-steps [model]="items"></p-steps>
         </div>
-        <div class="form-group ">
-            <div class="col-sm-12">
-                <label for="name" class="control-label required">Name</label>
-                <input type="text" id="name" class="form-control" formControlName="name">
+    </div>
+    <div class="card mt-3 rounded-card">
+        <div class="card-body">
 
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-12">
-                <label for="email" class="control-label required">Email</label>
-                <input type="text" id="email" class="form-control" formControlName="email">
-
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12">
+            <form class="form-horizontal" [formGroup]="form" (ngSubmit)="validator.validate()">
                 <p-tabView>
-                    <p-tabPanel header="Diplome">
-                        <div class="form-group">
-                            <div class="col-sm-12">
-                                <label for="email" class="control-label required">Diplome 1</label>
-                                <input type="text" id="email" class="form-control" required formControlName="diplome1">
+                    <p-tabPanel header="IDENTITY DETAILS">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="cin" class="control-label required">CIN</label>
+                                <input type="text" id="cin" class="form-control" formControlName="cin">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="name" class="control-label required">Name</label>
+                                <input type="text" id="name" class="form-control" formControlName="name">
 
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="email" class="control-label required">Email</label>
+                                <input type="text" id="email" class="form-control" formControlName="email">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="age" class="control-label required">Age</label>
+                                <input type="number" id="age" class="form-control" formControlName="age">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p-accordion styleClass="accordtion">
+                                    <p-accordionTab header="Address">
+                                        <div formGroupName="address">
+                                            <div class="form-group row">
+                                                <div class="col-md-5">
+                                                    <label for="street" class="control-label required">Street</label>
+                                                    <input type="text" id="street" class="form-control"
+                                                        formControlName="street">
+
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label for="street2" class="control-label">Street 2</label>
+                                                    <input type="text" id="street2" class="form-control"
+                                                        formControlName="street2">
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label for="zipCode" class="control-label required">Zip Code</label>
+                                                    <input type="text" id="zipCode" class="form-control"
+                                                        formControlName="zipCode">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label for="city" class="control-label required">City</label>
+                                                    <input type="text" id="city" class="form-control"
+                                                        formControlName="city">
+
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <label for="state" class="control-label required">State / Province /
+                                                        Region</label>
+                                                    <input type="text" id="state" class="form-control"
+                                                        formControlName="state">
+
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <label for="country" class="control-label required">Country</label>
+                                                    <input type="text" id="country" class="form-control"
+                                                        formControlName="country">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </p-accordionTab>
+                                    <p-accordionTab header="Family">
+
+                                        <div formGroupName="family" class="form-group row">
+                                            <div class="col-6">
+                                                <label for="father" class="control-label">Father</label>
+                                                <input type="text" id="father" class="form-control"
+                                                    formControlName="father">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="mother" class="control-label">Mother</label>
+                                                <input type="text" id="mother" class="form-control"
+                                                    formControlName="mother">
+                                            </div>
+                                        </div>
+                                    </p-accordionTab>
+
+                                </p-accordion>
+                            </div>
+                        </div>
+
                     </p-tabPanel>
-                    <p-tabPanel header="Header 2">
-                        Content 2
+                    <p-tabPanel header="EDUCATION">
+                        <div class="row">
+                            <div class="col-12">
+                                <p-accordion styleClass="accordtion">
+                                    <p-accordionTab header="Bac">
+                                        <div formGroupName="bac" class="form-group row">
+                                            <div class="col-6">
+                                                <label for="highSchool" class="control-label">HighSchool</label>
+                                                <input type="text" id="highSchool" class="form-control"
+                                                    formControlName="highSchool">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="highSchoolYear" class="control-label">Year</label>
+                                                <input type="text" id="highSchoolYear" class="form-control"
+                                                    formControlName="highSchoolYear">
+                                            </div>
+                                        </div>
+                                    </p-accordionTab>
+                                    <p-accordionTab header="License">
+                                        <div formGroupName="license" class="form-group row">
+                                            <div class="col-6">
+                                                <label for="university" class="control-label">Universty</label>
+                                                <input type="text" id="university" class="form-control"
+                                                    formControlName="university">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="licenseYear" class="control-label">Year</label>
+                                                <input type="text" id="licenseYear" class="form-control"
+                                                    formControlName="licenseYear">
+                                            </div>
+                                        </div>
+                                    </p-accordionTab>
+                                </p-accordion>
+                            </div>
+                        </div>
                     </p-tabPanel>
-                    <p-tabPanel header="Header 3">
+                    <p-tabPanel header="PROFESSIONAL">
                         Content 3
                     </p-tabPanel>
                 </p-tabView>
-            </div>
+
+                <!-- <div class="form-group">
+                    <div class="col-sm-12">
+                        <p-tabView>
+                            <p-tabPanel header="Diplome">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <label for="email" class="control-label required">Diplome 1</label>
+                                        <input type="text" id="email" class="form-control" required
+                                            formControlName="diplome1">
+
+                                    </div>
+                                </div>
+                            </p-tabPanel>
+                            <p-tabPanel header="Header 2">
+                                Content 2
+                            </p-tabPanel>
+                            <p-tabPanel header="Header 3">
+                                Content 3
+                            </p-tabPanel>
+                        </p-tabView>
+                    </div>
+                </div> -->
+
+
+
+                <div class="row">
+                    <div class="col-12 d-flex flex-row-reverse">
+                        <p-button label="Submit" styleClass="form-btn" [style]="{'margin-right': '10px'}" type="submit"
+                            icon="pi pi-check" iconPos="right">
+                        </p-button>
+                        <button pButton pRipple type="button" label="Reset" class="p-button-outlined form-btn mr-3"
+                            icon="pi pi-undo" iconPos="right"></button>
+                    </div>
+
+                    <!-- <button class="btn btn-primary"  >Submit</button> -->
+
+                </div>
+            </form>
         </div>
-        <div formGroupName="address">
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label for="street" class="control-label required">Address</label>
-                    <input type="text" id="street" class="form-control" formControlName="street">
+    </div>
 
-                </div>
-
-                <div class="col-md-3">
-                    <label for="street2" class="control-label">Address 2</label>
-                    <input type="text" id="street2" class="form-control" formControlName="street2">
-                </div>
-
-                <div class="col-md-3">
-                    <label for="zipCode" class="control-label required">Zip Code</label>
-                    <input type="text" id="zipCode" class="form-control" formControlName="zipCode">
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-4">
-                    <label for="city" class="control-label required">City</label>
-                    <input type="text" id="city" class="form-control" formControlName="city">
-
-                </div>
-
-                <div class="col-md-4">
-                    <label for="state" class="control-label required">State / Province / Region</label>
-                    <input type="text" id="state" class="form-control" formControlName="state">
-
-                </div>
-
-                <div class="col-md-4">
-                    <label for="country" class="control-label required">Country</label>
-                    <input type="text" id="country" class="form-control" formControlName="country">
-
-                </div>
-            </div>
-        </div>
-
-        <button class="btn btn-primary" type="submit" (click)="show()">Submit</button>
-    </form>
 </div>
 
 <form-validator #validator [form]="form" (submit)="submit()"></form-validator>
