@@ -1,27 +1,59 @@
 # FormValidator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+this generic Angular component can be used to manage the validation in any Angular form
 
-## Development server
+<!-- toc -->
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Features](#features)
+- [Demo](#demo)
+- [Development](#development)
+- [Usage](#usage)
+<!-- tocstop -->
 
-## Code scaffolding
+# Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<!-- features -->
 
-## Build
+- It can be used with any Angular form
+- When the form is submitted it show the invalid fields in the error-list component
+- When the user clicks on an error message in the error-list it scroll to the invalid field to show it to the end-user and let him fix it. this behavior work despite where the invalid field is located in the DOM (closed tab, closed section, nested scrollbars,...)
+- if the user fixes an invalid field; its related validation error message disappear from the error-list.
+- When all the invalid fields are fixed it's allow the user to submit the form
+- Search for error in the error-list
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<!-- featuresstop -->
 
-## Running unit tests
+# Demo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<!-- demo  -->
 
-## Running end-to-end tests
+![Farmers Market Finder Demo](src/assets/demo/demo.gif)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+<!-- demostop -->
 
-## Further help
+# Development
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<!-- development -->
+
+```sh-session
+$ git clone https://github.com/QADA99/form-validator.git
+$ cd mygit && npm install
+$ ng serve
+```
+
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+<!-- developmentstop -->
+
+# Usage
+
+<!-- usage -->
+
+```html
+<form [formGroup]="form" (ngSubmit)="validator.validate()">...</form>
+<form-validator #validator [form]="form" (submit)="submit()"></form-validator>
+```
+
+The form-validator works as a bridge between the form and the submit() method. When all the invalid fields are fixed it will call the submit() method(when you should send your HTTP request without checking the validation of the form).
+
+<!-- usagestop -->
