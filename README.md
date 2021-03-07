@@ -16,7 +16,7 @@ this generic Angular component can be used to manage the validation in any Angul
 
 - It can be used with any Angular form
 - When the form is submitted it show the invalid fields in the error-list component
-- When the user clicks on an error message in the error-list it scroll to the invalid field to show it to the end-user and let him fix it. this behavior work despite where the invalid field is located in the DOM (closed tab, closed section, nested scrollbars,...)
+- When the user clicks on an error message in the error-list it scrolls to the invalid field to show it to the end-user and let him fix it. this behavior work despite where the invalid field is located in the DOM (closed tab, closed section, nested scrollbars,...)
 - if the user fixes an invalid field; its related validation error message disappear from the error-list.
 - When all the invalid fields are fixed it's allow the user to submit the form
 - Search for error in the error-list
@@ -54,6 +54,6 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 <form-validator #validator [form]="form" (submit)="submit()"></form-validator>
 ```
 
-The form-validator works as a bridge between the form and the submit() method. When all the invalid fields are fixed it will call the submit() method(when you should send your HTTP request without checking the validation of the form).
+The form-validator works as a bridge between the form and the submit() method. When all the invalid fields are fixed it will call the submit() method(when you can send your HTTP request without checking the validation of the form).
 
 <!-- usagestop -->
