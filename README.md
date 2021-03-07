@@ -54,6 +54,6 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 <form-validator #validator [form]="form" (submit)="submit()"></form-validator>
 ```
 
-The form-validator works as a bridge between the form and the submit() method. When all the invalid fields are fixed it will call the submit() method(when you can send your HTTP request without checking the validation of the form).
+The form-validator works as a bridge between the form and the submit() method. When all the invalid fields are fixed it will call the submit() method(where you can send your HTTP request without checking the validation of the form).
 
 <!-- usagestop -->
