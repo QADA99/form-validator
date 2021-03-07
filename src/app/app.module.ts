@@ -16,13 +16,15 @@ import { ErrorListComponent } from './form-validator/error-list/error-list.compo
 import { FilterErrorPipe } from './form-validator/error-list/filter-error.pipe'
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { AccordionModule } from 'primeng/accordion';
+import { MousedownStopPropagationDirective } from './form-validator/mousedown-stop-propagation.directive';
 @NgModule({
   declarations: [
     AppComponent,
     FormValidatorComponent,
     ErrorListComponent,
     FilterErrorPipe,
-    DraggableDirective
+    DraggableDirective,
+    MousedownStopPropagationDirective
   ],
   imports: [
     FormsModule,

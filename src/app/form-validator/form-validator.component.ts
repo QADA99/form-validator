@@ -57,38 +57,5 @@ export class FormValidatorComponent implements OnInit {
       }
     });
   }
-  getSiblings(e) {
-    // for collecting siblings
-    let siblings = [];
-    // if no parent, return no sibling
-    if (!e.parentNode) {
-      return siblings;
-    }
-    // first child of the parent node
-    let sibling = e.parentNode.firstChild;
 
-    // collecting siblings
-    while (sibling) {
-      if (sibling.nodeType === 1 && sibling !== e) {
-        siblings.push(sibling);
-      }
-      sibling = sibling.nextSibling;
-    }
-    return siblings;
-  }
-
-  collectionHas(a, b) { //helper function (see below)
-    for (var i = 0, len = a.length; i < len; i++) {
-      if (a[i] == b) return true;
-    }
-    return false;
-  }
-  findParentBySelector(elm, selector) {
-    var all = document.querySelectorAll(selector);
-    var cur = elm.parentNode;
-    while (cur && !this.collectionHas(all, cur)) { //keep going up until you find a match
-      cur = cur.parentNode; //go up
-    }
-    return cur; //will return null if not found
-  }
 }

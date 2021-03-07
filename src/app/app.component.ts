@@ -20,6 +20,7 @@ export class AppComponent {
 
   }
   constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder) { }
+
   submit() {
     // send the http request here
   }
@@ -37,6 +38,7 @@ export class AppComponent {
       name: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
       age: [24, [Validators.required, Validators.max(40), Validators.min(18)]],
+      scrollInput: [null, Validators.required],
       address: this.fb.group({
         street: [null, Validators.required],
         street2: [null],
