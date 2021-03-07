@@ -15,10 +15,10 @@ this generic Angular component can be used to manage the validation in any Angul
 <!-- features -->
 
 - It can be used with any Angular form
-- When the form is submitted it show the invalid fields in the error-list component
-- When the user clicks on an error message in the error-list it scrolls to the invalid field to show it to the end-user and let him fix it. this behavior work despite where the invalid field is located in the DOM (closed tab, closed section, nested scrollbars,...)
-- if the user fixes an invalid field; its related validation error message disappear from the error-list.
-- When all the invalid fields are fixed it's allow the user to submit the form
+- When the form is submitted it shows the invalid fields in the error-list component
+- When the user clicks on an error message in the error-list it scrolls to the invalid field to show it to the end-user and let him fix it. this behavior works despite where the invalid field is located in the DOM (closed tab, closed section, nested scrollbars,...)
+- if the user fixes an invalid field; its related validation error message disappears from the error-list.
+- When all the invalid fields are fixed it allows the user to submit the form
 - Search for error in the error-list
 
 <!-- featuresstop -->
