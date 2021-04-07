@@ -37,7 +37,7 @@ this generic Angular component can be used to manage the validation in any Angul
 
 ```sh-session
 $ git clone https://github.com/QADA99/form-validator.git
-$ cd mygit && npm install
+$ npm install
 $ ng serve
 ```
 
